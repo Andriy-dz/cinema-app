@@ -5,10 +5,12 @@ import cinema.lib.Inject;
 import cinema.lib.Service;
 import cinema.model.Order;
 import cinema.model.ShoppingCart;
+import cinema.model.Ticket;
 import cinema.model.User;
 import cinema.service.OrderService;
 import cinema.service.ShoppingCartService;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,7 +22,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order completeOrder(ShoppingCart shoppingCart) {
-        Order order = new Order(shoppingCart.getTickets(),
+        List<Ticket> tickets = new ArrayList<>(shoppingCart.getTickets());
+        Order order = new Order(tickets,
                 LocalDateTime.now(), shoppingCart.getUser());
         orderDao.add(order);
         shoppingCartService.clearShoppingCart(shoppingCart);
