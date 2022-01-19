@@ -5,15 +5,13 @@ import cinema.exception.DataProcessingException;
 import cinema.model.CinemaHall;
 import cinema.service.CinemaHallService;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class CinemaHallServiceImpl implements CinemaHallService {
     private final CinemaHallDao cinemaHallDao;
-
-    public CinemaHallServiceImpl(CinemaHallDao cinemaHallDao) {
-        this.cinemaHallDao = cinemaHallDao;
-    }
 
     @Override
     public CinemaHall add(CinemaHall cinemaHall) {

@@ -5,18 +5,15 @@ import cinema.exception.DataProcessingException;
 import cinema.model.User;
 import cinema.service.UserService;
 import java.util.Optional;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
     private final PasswordEncoder encoder;
     private final UserDao userDao;
-
-    public UserServiceImpl(PasswordEncoder encoder, UserDao userDao) {
-        this.encoder = encoder;
-        this.userDao = userDao;
-    }
 
     @Override
     public User add(User user) {
