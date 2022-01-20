@@ -5,15 +5,13 @@ import cinema.exception.DataProcessingException;
 import cinema.model.Movie;
 import cinema.service.MovieService;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class MovieServiceImpl implements MovieService {
     private final MovieDao movieDao;
-
-    public MovieServiceImpl(MovieDao movieDao) {
-        this.movieDao = movieDao;
-    }
 
     @Override
     public Movie add(Movie movie) {

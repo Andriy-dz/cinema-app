@@ -6,21 +6,15 @@ import cinema.service.AuthenticationService;
 import cinema.service.RoleService;
 import cinema.service.ShoppingCartService;
 import cinema.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserService userService;
     private final ShoppingCartService shoppingCartService;
     private final RoleService roleService;
-
-    public AuthenticationServiceImpl(UserService userService,
-                                     ShoppingCartService shoppingCartService,
-                                     RoleService roleService) {
-        this.userService = userService;
-        this.shoppingCartService = shoppingCartService;
-        this.roleService = roleService;
-    }
 
     @Override
     public User register(String email, String password) {

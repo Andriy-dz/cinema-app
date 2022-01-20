@@ -8,17 +8,14 @@ import cinema.service.OrderService;
 import cinema.service.ShoppingCartService;
 import java.time.LocalDateTime;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class OrderServiceImpl implements OrderService {
     private final OrderDao orderDao;
     private final ShoppingCartService shoppingCartService;
-
-    public OrderServiceImpl(OrderDao orderDao, ShoppingCartService shoppingCartService) {
-        this.orderDao = orderDao;
-        this.shoppingCartService = shoppingCartService;
-    }
 
     @Override
     public Order completeOrder(ShoppingCart shoppingCart) {

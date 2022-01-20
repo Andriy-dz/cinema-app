@@ -3,15 +3,13 @@ package cinema.service.impl;
 import cinema.dao.RoleDao;
 import cinema.model.Role;
 import cinema.service.RoleService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class RoleServiceImpl implements RoleService {
     private RoleDao roleDao;
-
-    public RoleServiceImpl(RoleDao roleDao) {
-        this.roleDao = roleDao;
-    }
 
     @Override
     public Role add(Role role) {
